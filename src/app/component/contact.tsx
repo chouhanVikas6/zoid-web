@@ -59,33 +59,34 @@ export default function ContactSection(){
           setSubmitStatus('error');
         }
       };
-    return  <section id="contact" className=" bg-gray-300 py-24 flex justify-center items-center">
-        <div className="max-w-7xl w-full flex flex-col md:flex-row gap-12 md:gap-20 items-center md:items-stretch px-4">
+    return (
+      <section id="contact" className="bg-gray-300 py-12 flex justify-center items-center">
+        <div className="max-w-7xl w-full flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-stretch px-2 sm:px-4">
           {/* Map on the left */}
-          <div className="md:w-1/2 w-full h-96 md:h-auto rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-gray-200">
+          <div className="w-full md:w-1/2 h-64 sm:h-80 md:h-auto rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-gray-200 mb-6 md:mb-0">
             <iframe
               title="Zoid HQ Map"
               src="https://www.openstreetmap.org/export/embed.html?bbox=77.36393898274583%2C28.49990122958742%2C77.38393898274583%2C28.51990122958742&amp;layer=mapnik&marker=28.50990122958742%2C77.37393898274583"
-              className="w-full h-full border-0"
+              className="w-full h-full border-0 min-h-[200px]"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
           {/* Form on the right */}
-          <div className="md:w-1/2 w-full flex items-center justify-center">
+          <div className="w-full md:w-1/2 flex items-center justify-center">
             <form
               onSubmit={handleSubmit}
-              className="w-full max-w-md bg-white text-black rounded-2xl shadow-2xl p-8 flex flex-col gap-6"
+              className="w-full max-w-md bg-white text-black rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6"
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Contact Us</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2 text-center">Contact Us</h2>
               <input
                 type="text"
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="Full Name"
-                className="p-3 rounded-lg border border-gray-300 focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition"
+                className="p-2 sm:p-3 rounded-lg border border-gray-300 focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition text-base sm:text-lg"
                 required
               />
               <input
@@ -94,11 +95,11 @@ export default function ContactSection(){
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Email Address"
-                className={`p-3 rounded-lg border ${formErrors.email ? 'border-red-500' : 'border-gray-300'} focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition`}
+                className={`p-2 sm:p-3 rounded-lg border ${formErrors.email ? 'border-red-500' : 'border-gray-300'} focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition text-base sm:text-lg`}
                 required
               />
               {formErrors.email && (
-                <p className="text-red-600 text-sm -mt-4 mb-2">{formErrors.email}</p>
+                <p className="text-red-600 text-sm -mt-3 mb-1 sm:-mt-4 sm:mb-2">{formErrors.email}</p>
               )}
               <input
                 type="tel"
@@ -106,22 +107,22 @@ export default function ContactSection(){
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Phone Number"
-                className={`p-3 rounded-lg border ${formErrors.phone ? 'border-red-500' : 'border-gray-300'} focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition`}
+                className={`p-2 sm:p-3 rounded-lg border ${formErrors.phone ? 'border-red-500' : 'border-gray-300'} focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition text-base sm:text-lg`}
                 required
               />
               {formErrors.phone && (
-                <p className="text-red-600 text-sm -mt-4 mb-2">{formErrors.phone}</p>
+                <p className="text-red-600 text-sm -mt-3 mb-1 sm:-mt-4 sm:mb-2">{formErrors.phone}</p>
               )}
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Your Message"
-                rows={5}
-                className="p-3 rounded-lg border border-gray-300 focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition resize-none"
+                rows={4}
+                className="p-2 sm:p-3 rounded-lg border border-gray-300 focus:border-black focus:ring-2 focus:ring-black/10 outline-none transition resize-none text-base sm:text-lg"
                 required
               />
-              <button type="submit" className="bg-black hover:bg-gray-800 text-white p-3 rounded-lg font-semibold text-lg transition disabled:opacity-60" disabled={submitStatus === 'loading'}>
+              <button type="submit" className="bg-black hover:bg-gray-800 text-white p-2 sm:p-3 rounded-lg font-semibold text-base sm:text-lg transition disabled:opacity-60" disabled={submitStatus === 'loading'}>
                 {submitStatus === 'loading' ? 'Sending...' : 'Send Message'}
               </button>
               {submitStatus === 'success' && (
@@ -134,4 +135,5 @@ export default function ContactSection(){
           </div>
         </div>
       </section>
+    );
 }

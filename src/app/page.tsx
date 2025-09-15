@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import MissionSection from "./component/mission";
 import ProjectSection from "./component/project";
 import ProcesSection from "./component/process";
@@ -8,13 +9,14 @@ import ContactSection from "./component/contact";
 
 export default function Home() {
 
+  const [navOpen, setNavOpen] = React.useState(false);
   return (
-    <>
+    <div className="overflow-x-hidden">
       {/* Notice and Sticky Header Wrapper */}
       <div className="w-full">
         {/* Notification Marquee */}
         <div className="w-full bg-[#232323] text-white py-1 overflow-hidden relative z-50">
-          <div className="whitespace-nowrap animate-marquee font-medium text-center px-4">
+          <div className="whitespace-nowrap animate-marquee font-medium text-center px-2 sm:px-4 text-xs sm:text-sm md:text-base lg:text-lg">
             Notice: You’re viewing a preview version of our site. The full platform will launch after our team concludes time-sensitive R&amp;D supporting high-stakes projects.
           </div>
         </div>
@@ -36,14 +38,14 @@ export default function Home() {
           </div>
           {/* Navigation overlays video and is sticky below notice */}
           <nav className="sticky top-0 left-0 w-full z-30">
-            <div className="flex text-white items-center justify-between px-6 py-5 bg-gray-900/90 backdrop-blur-sm border-b border-[#e5e1dc] ">
+            <div className="flex text-white items-center justify-between px-4 sm:px-6 py-4 sm:py-5 bg-gray-900/90 backdrop-blur-sm border-b border-[#e5e1dc] ">
               {/* Left: Logo placeholder */}
               <div className="flex items-center gap-2">
                 {/* Logo will be added here */}
-                <span className="text-white  font-bold text-3xl tracking-widest">ZOID</span>
+                <span className="text-white font-bold text-2xl sm:text-3xl tracking-widest">ZOID</span>
               </div>
               {/* Center: Product names placeholder */}
-              <div className="md:flex gap-8 text-white  font-medium">
+              <div className="hidden md:flex gap-8 text-white font-medium">
                 <span className="cursor-pointer">Missile Decoys</span>
                 <span className="cursor-pointer">FOD Detection</span>
                 <a className="no-underline text-inherit" href="/crpa.pdf" target="_blank" rel="noopener noreferrer">
@@ -51,12 +53,32 @@ export default function Home() {
                 </a>
                 <span className="cursor-pointer">UAV Softwares</span>
               </div>
-              {/* Right: We're Hiring and Hamburger */}
-              <div className="flex text-white  items-center gap-6">
-                <span className="hidden md:inline  font-medium">We&apos;re Hiring</span>
-           
+              {/* Hamburger for mobile */}
+              <div className="flex items-center gap-4">
+                <span className="hidden md:inline font-medium">We&apos;re Hiring</span>
+                <button
+                  className="md:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
+                  aria-label="Open navigation menu"
+                  onClick={() => setNavOpen((open) => !open)}
+                >
+                  <span className={`block w-7 h-0.5 bg-white mb-1 transition-all duration-200 ${navOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                  <span className={`block w-7 h-0.5 bg-white mb-1 transition-all duration-200 ${navOpen ? 'opacity-0' : ''}`}></span>
+                  <span className={`block w-7 h-0.5 bg-white transition-all duration-200 ${navOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                </button>
               </div>
             </div>
+            {/* Mobile nav dropdown */}
+            {navOpen && (
+              <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-b border-[#e5e1dc] px-4 py-4 flex flex-col gap-4 text-white font-medium animate-fade-in-down z-40">
+                <span className="cursor-pointer">Missile Decoys</span>
+                <span className="cursor-pointer">FOD Detection</span>
+                <a className="no-underline text-inherit" href="/crpa.pdf" target="_blank" rel="noopener noreferrer">
+                  Anti-Jam CRPA GPS/GNSS
+                </a>
+                <span className="cursor-pointer">UAV Softwares</span>
+                <span className="font-medium">We&apos;re Hiring</span>
+              </div>
+            )}
           </nav>
         </div>
       </div>
@@ -118,6 +140,6 @@ export default function Home() {
           </div>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
