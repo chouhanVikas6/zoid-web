@@ -82,7 +82,7 @@ export default function Home() {
               <div className="mb-2">
                 <span className="block font-semibold">Contact Details</span>
                 <hr className="my-2 border-gray-700" />
-                <span className="block">+91-9871617142</span>
+                <span className="block">+91-8003215622</span>
                 <span className="block">sales@zoidtech.co.in</span>
                 <span className="block">www.zoidtech.co.in</span>
               </div>
