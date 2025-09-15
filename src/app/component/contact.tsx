@@ -64,8 +64,8 @@ export default function ContactSection(){
           {/* Map on the left */}
           <div className="md:w-1/2 w-full h-96 md:h-auto rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-gray-200">
             <iframe
-              title="Anduril HQ Map"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-118.4452%2C33.9425%2C-118.2437%2C34.0522&amp;layer=mapnik"
+              title="Zoid HQ Map"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=77.36393898274583%2C28.49990122958742%2C77.38393898274583%2C28.51990122958742&amp;layer=mapnik&marker=28.50990122958742%2C77.37393898274583"
               className="w-full h-full border-0"
               allowFullScreen
               loading="lazy"

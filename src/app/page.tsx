@@ -14,20 +14,9 @@ export default function Home() {
       <div className="w-full">
         {/* Notification Marquee */}
         <div className="w-full bg-[#232323] text-white py-1 overflow-hidden relative z-50">
-          <div className="whitespace-nowrap animate-marquee font-medium text-base px-4">
+          <div className="whitespace-nowrap animate-marquee font-medium text-center px-4">
             Notice: You’re viewing a preview version of our site. The full platform will launch after our team concludes time-sensitive R&amp;D supporting high-stakes projects.
           </div>
-          <style jsx global>{`
-          @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-          }
-          .animate-marquee {
-            display: inline-block;
-            min-width: 100%;
-            animation: marquee 20s linear infinite;
-          }
-        `}</style>
         </div>
         <div className="relative w-full h-screen overflow-hidden font-sans">
           {/* Background Video */}
@@ -47,29 +36,25 @@ export default function Home() {
           </div>
           {/* Navigation overlays video and is sticky below notice */}
           <nav className="sticky top-0 left-0 w-full z-30">
-            <div className="flex items-center justify-between px-6 py-5 bg-gray-900/90 backdrop-blur-sm border-b border-[#e5e1dc] ">
+            <div className="flex text-white items-center justify-between px-6 py-5 bg-gray-900/90 backdrop-blur-sm border-b border-[#e5e1dc] ">
               {/* Left: Logo placeholder */}
               <div className="flex items-center gap-2">
                 {/* Logo will be added here */}
-                <span className="font-bold text-3xl tracking-widest">ZOID</span>
+                <span className="text-white  font-bold text-3xl tracking-widest">ZOID</span>
               </div>
               {/* Center: Product names placeholder */}
-              <div className="md:flex gap-8  font-medium">
+              <div className="md:flex gap-8 text-white  font-medium">
                 <span className="cursor-pointer">Missile Decoys</span>
                 <span className="cursor-pointer">FOD Detection</span>
-                <a href="/crpa.pdf" target="_blank" rel="noopener noreferrer">
+                <a className="no-underline text-inherit" href="/crpa.pdf" target="_blank" rel="noopener noreferrer">
                   Anti-Jam CRPA GPS/GNSS
                 </a>
                 <span className="cursor-pointer">UAV Softwares</span>
               </div>
               {/* Right: We're Hiring and Hamburger */}
-              <div className="flex items-center gap-6">
+              <div className="flex text-white  items-center gap-6">
                 <span className="hidden md:inline  font-medium">We&apos;re Hiring</span>
-                <button className="w-10 h-10 flex flex-col justify-center items-center gap-1 md:hidden">
-                  <span className="block w-7 h-0.5 bg-black"></span>
-                  <span className="block w-7 h-0.5 bg-black"></span>
-                  <span className="block w-7 h-0.5 bg-black"></span>
-                </button>
+           
               </div>
             </div>
           </nav>
